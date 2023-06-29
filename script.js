@@ -29,7 +29,7 @@ function operate(){
     if(operator_ === "÷" && secondNumber != ""){
 
         if(parseFloat(secondNumber) === 0){
-            header.textContent = "ERROR";
+            output.textContent = "ERROR";
         }
         else{
             divide();
@@ -48,11 +48,26 @@ function equalReset(){
         firstC = true;
     }
 }
+const a = document.querySelectorAll(".btn");
+
+a.forEach(function(b){
+  b.addEventListener('mouseover',() =>{
+    b.style.backgroundColor = "#9BA99C";
+  });
+  b.addEventListener('mouseout',() =>{
+    b.style.backgroundColor = "#ACBBAD";
+  });
+  b.addEventListener('mouseup',() =>{
+    b.style.backgroundColor = "#9BA99C";
+  });
+  b.addEventListener('mousedown',() =>{
+    b.style.backgroundColor = "#889589";
+  });
+
+});
 
 let displayValue = "";
 let secondNumber = "";
-
-
 let operator_ = "";
 let firstC = true;
 const Zero = document.querySelector(".Zero");
@@ -74,54 +89,55 @@ const equal = document.querySelector(".equal");
 const clear = document.querySelector(".clear");
 const point = document.querySelector(".point");
 const backspace = document.querySelector(".backspace")
+const output = document.querySelector(".output");
+const top_ = document.querySelector(".top");
 
 backspace.addEventListener('click',() =>{
-if(parseFloat(header.textContent) != 0){
+if(parseFloat(output.textContent) != 0){
     if(firstC){
          displayValue = displayValue.slice(0,-1);
-    header.textContent = displayValue;
+         output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber.slice(0,-1);
-    header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
 }
 else if(displayValue === ""){
-    header.textContent = "0";
+    output.textContent = "0";
 }
-
 });
 Zero.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "0";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "0";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
 });
 One.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "1";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "1";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
 });
 Two.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "2";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "2";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -129,11 +145,11 @@ Three.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "3";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "3";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -141,11 +157,11 @@ Four.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "4";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "4";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -153,11 +169,11 @@ Five.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "5";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "5";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -165,11 +181,11 @@ Six.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "6";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "6";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -177,11 +193,11 @@ Seven.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "7";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "7";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -189,11 +205,11 @@ Eight.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "8";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "8";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
@@ -201,43 +217,48 @@ Nine.addEventListener('click',() =>{
     equalReset();
     if(firstC){
         displayValue = displayValue + "9";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + "9";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
    
 });
 plus.addEventListener('click',() =>{
     if(!firstC){
+        
         operate();
-        header.textContent = displayValue;
+       
+        output.textContent = displayValue;
         operator_ ="+";
+        top_.textContent = displayValue + " " + operator_;
     }
     else if(displayValue != ""){
+        
         operator_ ="+";
+        top_.textContent = displayValue + " " + operator_;
         firstC = false; 
     }
 });
 point.addEventListener('click',() =>{
 
-    if(!header.textContent.includes(".")){
+    if(!output.textContent.includes(".")){
 
     if(firstC){
         displayValue = displayValue + ".";
-        header.textContent = displayValue;
+        output.textContent = displayValue;
     }
     else{
         secondNumber = secondNumber + ".";
-        header.textContent = secondNumber;
+        output.textContent = secondNumber;
     }
 }
 });
 multi.addEventListener('click',() =>{
     if(!firstC){
         operate();
-        header.textContent = displayValue;
+        output.textContent = displayValue;
         operator_ ="*";
     }
     else if(displayValue != ""){
@@ -248,7 +269,7 @@ multi.addEventListener('click',() =>{
 div.addEventListener('click',() =>{
     if(!firstC){
         operate();
-        header.textContent = displayValue;
+        output.textContent = displayValue;
         operator_ ="÷";
     }
     else if(displayValue != ""){
@@ -259,7 +280,7 @@ div.addEventListener('click',() =>{
 sub.addEventListener('click',() =>{
     if(!firstC){
         operate();
-        header.textContent = displayValue;
+        output.textContent = displayValue;
         operator_ ="-";
     }
     else if(displayValue != ""){
@@ -268,19 +289,23 @@ sub.addEventListener('click',() =>{
     }
 });
 equal.addEventListener('click',() =>{
-
+    if(!top_.textContent.includes("=")){
+    top_.textContent = top_.textContent + " " + secondNumber + " =";
+    }
     operate();
     operator_ = "=";
-    header.textContent = displayValue;
+    output.textContent = displayValue;
     
 });
 
 clear.addEventListener('click',() =>{
     
-    header.textContent = "0";
+    output.textContent = "0";
     displayValue ="";
     secondNumber ="";
     operator_="";
     firstC = true;
-
+    top_.textContent = "";
+    
 });
+

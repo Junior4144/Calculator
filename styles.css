@@ -8,40 +8,71 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 150px;
-   
     flex-direction: column;
     background-color: #D7DAE5;
 }
-
-.main_cal{
-    background-color: #D7DAE5;
+.cal{
+    width:400px;
+    height:400px;
+    background-color: lightgray;
     display:flex;
-    flex-wrap: wrap;
-    width:200px;
-    height:200px;
-    border: 1px black solid;
-}
-
-.header{
-    background-color: #B9CDDA;
-    display:flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width:198px;
-    height:25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
     border: 2px black solid;
-    border-bottom: none;
 }
-button{
-    flex:1;
-    min-width: 50px;
-    
-    background-color: #ACBBAD;
-}
-
 .main_title{
     font-family: 'Gill Sans';
     font-weight: bold;
     margin-bottom: 50px;
     font-size:48px;
+    
 }
+.Calculator{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+.header{
+    background-color: #B9CDDA;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+    width:350px;
+    height:70px;
+    margin-bottom: 25px;
+    border: 2px black solid;
+    border-radius: 15px;
+    font-size:20px;
+}
+.top{
+    margin-right: 10px;
+
+}
+.output{
+    margin-right: 10px;
+}
+.main_cal{
+    background-color: #D7DAE5;
+    display:flex;
+    flex-wrap: wrap;
+    width:350px;
+    height:250px;
+    border-radius: 15px;
+    background-color: lightgray;
+    gap:10px;
+    
+}
+button{
+    flex:1;
+    min-width: 50px;
+    border-radius: 5px;
+    background-color: #ACBBAD;
+    border:2px black solid;
+}
+
+
